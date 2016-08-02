@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>MY APP</title>
+        <script src="main.js"></script>
+        <style>
+            table,tr,td,th{
+                border: 1px solid #bbb;
+            }
+            table{
+                border: 2px solid black;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        May Node and Express be with you.
+        <form action="/quotes" method="POST" style="text-align: center">
+            <input type="text" placeholder="name" name="name">
+            <input type="text" placeholder="quote" name="quote">
+            <button type="submit">Submit</button>
+        </form>
+        <table class="quotes">
+            <tr>
+                <th style="width: 3%;">#</th>
+                <th style="width: 20%;">Name</th>
+                <th>Quote</th>
+            </tr>
+            <% for(var i=0; i<quotes.length; i++) {%>
+                <tr class="quote">
+                    <td><span><%= i+1 %></span></td>
+                    <td><span><%= quotes[i].name %></span></td>
+                    <td><span><%= quotes[i].quote %></span></td>
+                </tr>
+                <% } %>
+        </table>
+
+
+        <div>
+            <h2>Replace last quote written by Master Yoda with a quote written by Darth Vadar</h2>
+            <button id="update"> Darth Vadar invades! </button>
+        </div>
+    </body>
+</html>
